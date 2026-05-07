@@ -6,7 +6,7 @@ export default function RootRedirect() {
   useEffect(() => {
     // Instant redirect to default language (es)
     // User can manually switch to /en if preferred
-    window.location.replace("/es/");
+    window.location.replace("/en/");
   }, []);
 
   // This HTML shows briefly before redirect (should be nearly instant)
