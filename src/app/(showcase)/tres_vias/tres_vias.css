@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+
+:root {
+  --tv-cream: #F9F7F2;
+  --tv-espresso: #2C1E16;
+  --tv-crust: #BC6C25;
+}
+
+.tv-root {
+  background-color: var(--tv-cream);
+  color: var(--tv-espresso);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  cursor: none; /* Hide default cursor if we want, but usually better to keep it for a11y, we'll hide it for non-touch devices in JS */
+}
+
+.tv-root .serif {
+  font-family: 'Playfair Display', serif;
+}
+
+/* Custom Cursor */
+#cursor {
+  width: 20px;
+  height: 20px;
+  background: var(--tv-crust);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  mix-blend-mode: difference;
+  transition: transform 0.15s ease-out;
+  left: 0;
+  top: 0;
+  transform: translate(-50%, -50%);
+}
+
+.hero-title {
+  font-size: clamp(3rem, 10vw, 8rem);
+  line-height: 0.9;
+}
+
+.reveal-text {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.reveal-text span {
+  display: inline-block;
+  transform: translateY(120%);
+}
+
+.image-container {
+  overflow: hidden;
+  background: #e5e5e5;
+}
+
+.parallax-img {
+  transform: scale(1.2);
+}
+
+.nav-link {
+  position: relative;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  width: 0; height: 1px;
+  bottom: -2px; left: 0;
+  background-color: currentColor;
+  transition: width 0.4s ease;
+}
+.nav-link:hover::after { width: 100%; }
+
+/* Marquee styles */
+.marquee-container {
+  display: flex;
+  white-space: nowrap;
+  overflow: hidden;
+}

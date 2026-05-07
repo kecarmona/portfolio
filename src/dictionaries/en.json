@@ -1,0 +1,198 @@
+{
+  "navbar": {
+    "about": "About",
+    "stack": "Stack",
+    "projects": "Projects",
+    "contact": "Contact",
+    "hire": "Hire me"
+  },
+  "hero": {
+    "openToWork": "Open to work",
+    "availability": "Available for remote roles · 2026",
+    "title1": "Fullstack engineer",
+    "title2": "who ships & diagnoses",
+    "description": "5+ years building enterprise-grade Angular + NestJS systems. I don't just write features — I track down the root cause, instrument the fix, and write the test that proves it. From -82% codebase refactors to 42 production bugs resolved in a single testing cycle.",
+    "ctaWork": "See my work",
+    "ctaLinkedIn": "LinkedIn →",
+    "stats": {
+      "years": "Years experience",
+      "tests": "Tests written in one sprint",
+      "reduction": "Codebase reduction",
+      "bugs": "P0 bugs resolved in one cycle"
+    }
+  },
+  "companies": {
+    "pill": "COMPANIES & CLIENTS",
+    "subtitle": "Teams and products I've built for"
+  },
+  "about": {
+    "pill": "ABOUT",
+    "title1": "I diagnose systems,",
+    "title2": "not just features",
+    "description": "Fullstack engineer based in Costa Rica with 5+ years in B2B/B2C enterprise software. I specialize in Angular + NestJS architectures, real-time systems, and AI-assisted automation. My differentiator: I leave every codebase measurably better than I found it.",
+    "cards": {
+      "interfaces": {
+        "title": "Interfaces that perform",
+        "desc": "Expert in Angular 14→21 with Signals, OnPush, standalone components, and RxJS. I've migrated God Components (4,175 lines) into 35+ focused, testable units — and cut search latency from 3–5s to under 1s with GIN indexes and LRU cache strategies."
+      },
+      "backends": {
+        "title": "Backends built to last",
+        "desc": "NestJS + PostgreSQL/Supabase with multi-tenancy (RLS, header-based routing), JWT/ES256 auth hardening, WebSocket gateways, and CI/CD via Bitbucket Pipelines. I've also built and shipped n8n + LLM automation agents to production."
+      }
+    },
+    "process": {
+      "title": "My development process",
+      "subtitle": "Spec-Driven Development (SDD): propose → apply → verify → archive.",
+      "tabs": {
+        "discovery": {
+          "label": "Discovery",
+          "title": "Discovery & Arch",
+          "desc": "I don't just take tickets; I understand the business problem. If a requirement creates technical debt, I push back and propose alternatives."
+        },
+        "spec": {
+          "label": "Spec",
+          "title": "Spec-Driven",
+          "desc": "Every feature starts with an OpenSpec document. I write the 'What' and 'Why' before the 'How'. No assumptions, no blind coding."
+        },
+        "development": {
+          "label": "Development",
+          "title": "How I code",
+          "desc": "I use OpenSpec (my own SDD framework) + Claude Code for spec-first development. Every feature is documented before it's built, reviewed by dual blind judges (Judgment Day protocol), and closed only when tests pass."
+        },
+        "testing": {
+          "label": "Testing",
+          "title": "Testing Culture",
+          "desc": "I test what matters. Unit tests for critical domain logic, E2E (Playwright) for happy paths. In my last cycle, I added 722 tests in a single sprint."
+        },
+        "production": {
+          "label": "Production",
+          "title": "Production & Ops",
+          "desc": "CI/CD setup, Docker containerization, and Datadog/Sentry instrumentation. I own the code from localhost to production."
+        }
+      }
+    }
+  },
+  "tech": {
+    "pill": "STACK",
+    "title": "Technologies I ship with",
+    "description": "Angular + NestJS + TypeScript as my core. Extended with PostgreSQL/Supabase, real-time systems (Socket.IO), and AI automation (n8n + LLMs + MCP)."
+  },
+  "projects": {
+    "pill": "SELECTED WORK",
+    "title": "What I've built & fixed",
+    "subtitle": "Real production systems. Every metric below is verifiable — no lorem ipsum, no invented numbers.",
+    "items": {
+      "maximus": {
+        "category": "B2B ENTERPRISE",
+        "title": "Maximus CRM — WhatsApp Module Refactor",
+        "desc": "Led a 22-day critical refactor of a production CRM WhatsApp module. Decomposed 3 God Components into 35+ standalone units, secured 0→100% endpoint coverage with JWT/ES256 auth, and resolved 10+ production bugs including broken WebSocket and Kanban race conditions. Also mapped SAP B1 integrations (Opportunities + Sales Quotations modules).",
+        "metrics": [
+          { "icon": "📉", "text": "God Service: 1,621 → 297 lines", "badge": "-82%" },
+          { "icon": "⚡", "text": "Search latency: 3–5s → <1s", "badge": "pg_trgm GIN" },
+          { "icon": "🧪", "text": "0 → 722 tests", "badge": "481 FE + 241 BE" }
+        ]
+      },
+      "miniso": {
+        "category": "E-COMMERCE B2C",
+        "title": "MINISO Costa Rica — WhatsApp AI Sales Agent",
+        "desc": "Designed and shipped a conversational sales agent for a retail chain using n8n + GPT-4o + PostgreSQL memory (15-turn context window). Architected an orchestrator-agent pattern with 28 anti-hallucination prompt rules. Resolved 42 production bugs in a single testing cycle — including P0s like cross-workflow ID swaps, hardcoded tenant isolation failures, and burst-detection message loss.",
+        "liveTag": "AI Sales Agent · MINISO CR",
+        "bullets": [
+          "8 conversation states · 15+ classified intents",
+          "R0–R28 anti-hallucination rules · 42 bugs resolved"
+        ],
+        "pBadges": ["P0: cross-workflow IDs fixed", "P0: hardcoded tenant_id", "P0: cart duplication"]
+      },
+      "mcp": {
+        "category": "AI INTEGRATION",
+        "title": "Custom MCP Server — Team Dev Tooling",
+        "desc": "Built a custom Model Context Protocol server with 17 tools to standardize the team's AI-assisted development workflow. Provides coding standards, QA specs, DoD, and OpenSpec automation directly to Claude Code. Includes a Jira enrichment tool and a skills system with 6 reusable templates extracted from hardcoded logic.",
+        "bullets": [
+          "17 tools: coding standards, DoD, OpenSpec automation",
+          "60s TTL cache · stack-adaptive · Jira ticket enrichment",
+          "Judgment Day: dual blind adversarial review protocol"
+        ],
+        "status": "Active in prod"
+      },
+      "tico": {
+        "category": "SAAS PRODUCT",
+        "title": "Tico Kitchen — Multi-tenant POS SaaS",
+        "desc": "Architected a multi-tenant POS system with dynamic JWT roles, granular permissions, and Clean Architecture. Resolved a critical silent bug where Mongoose's auto-ObjectId casting caused permissions to always return empty — zero errors, full invisibility. Full UUID→ObjectId migration across entities, ports, repositories, and use-cases.",
+        "codeBadge": "JWT · Multi-tenant · RLS"
+      }
+    }
+  },
+  "landings": {
+    "pill": "LANDING PAGES",
+    "title1": "Sites for",
+    "title2": "real businesses",
+    "subtitle": "A selection of landings built for clients and local businesses. Each one with its own visual identity and architecture.",
+    "cta": "Visit",
+    "items": {
+      "beaty_studio": {
+        "category": "BEAUTY · NAILS",
+        "title": "Bauty Studio",
+        "desc": "Dark-elegance studio for nails, brows, and lashes. Boutique branding with online booking."
+      },
+      "ev_cars": {
+        "category": "MOBILITY · EV",
+        "title": "Voltios",
+        "desc": "Community and marketplace for electric vehicles in LATAM."
+      },
+      "hair_cut": {
+        "category": "BARBERSHOP",
+        "title": "El Corte Noble",
+        "desc": "Premium barbershop with booking system and team showcase."
+      },
+      "sweet_bakery": {
+        "category": "BAKERY",
+        "title": "Sweet Bakery",
+        "desc": "Bakery with a fresh product catalog: cakes, cupcakes, and breads."
+      },
+      "tres_vias": {
+        "category": "ARTISAN BAKERY",
+        "title": "Pastelería Tres Vías",
+        "desc": "Artisan coffee shop and bakery with an immersive premium experience."
+      }
+    }
+  },
+  "diff": {
+    "pill": "DIFFERENTIATORS",
+    "title1": "What makes me",
+    "title2": "stand out",
+    "cards": {
+      "quality": {
+        "title": "I leave codebases better",
+        "desc": "Not just feature delivery — I identify architectural debt and fix it with measurable outcomes. -82% codebase size, 722 tests added, search time cut 5×. Every engagement has a before/after story."
+      },
+      "ai": {
+        "title": "AI-Native Developer",
+        "desc": "I've shipped real AI products: a WhatsApp sales agent in production, a custom 17-tool MCP Server for team workflows, and 28 prompt engineering rules for LLM anti-hallucination. AI accelerates my output without sacrificing quality."
+      },
+      "rootCause": {
+        "title": "Root-cause thinking",
+        "desc": "Every bug I fix gets a documented lesson: symptom → root cause → fix → detection rule. I've authored 40+ lessons learned from a single project. Silent failures (wrong column name, auto-cast mismatch) are exactly what I hunt for."
+      }
+    }
+  },
+  "contact": {
+    "availability": "Available for remote roles",
+    "title1": "Let's build something",
+    "title2": "that lasts.",
+    "desc": "Open to Senior Fullstack, Tech Lead, and AI Integration Engineer roles. Remote-first. Based in Costa Rica, available globally.",
+    "ctaLinkedIn": "LinkedIn →"
+  },
+  "footer": {
+    "desc": "Fullstack Software Engineer · Angular + NestJS + TypeScript · AI Automation · Costa Rica / Remote Global",
+    "connect": "Connect",
+    "strengths": {
+      "title": "Strengths",
+      "items": ["Angular 14 → 21", "NestJS / Node.js APIs", "n8n + LLM Automation", "MCP / AI Tooling"]
+    },
+    "roles": {
+      "title": "Roles I'm targeting",
+      "items": ["Senior Fullstack Engineer", "Tech Lead / Staff Engineer", "AI Integration Engineer", "Software Architect"]
+    },
+    "copyright": "©2026 Kendal Carmona Herrera · Costa Rica"
+  }
+}

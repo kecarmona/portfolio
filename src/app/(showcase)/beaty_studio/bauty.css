@@ -1,0 +1,373 @@
+/* ============================================================
+   BAUTY STUDIO — Estilos propios.
+   Prefijados con .bauty- para evitar conflictos con el DS global.
+   ============================================================ */
+
+.bauty-root {
+  background-color: #0a0a0a;
+  color: #ffffff;
+  font-family: var(--font-inter), 'Inter', sans-serif;
+  overflow-x: hidden;
+  /* Colores de selección de texto */
+  --bauty-accent: #ff0033;
+}
+
+.bauty-root ::selection {
+  background-color: var(--bauty-accent);
+  color: #ffffff;
+}
+
+/* ── Reset de headings para evitar estilos base globales ── */
+.bauty-root h1,
+.bauty-root h2,
+.bauty-root h3,
+.bauty-root h4,
+.bauty-root h5,
+.bauty-root h6 {
+  color: #ffffff;
+}
+
+/* ── Tipografía editorial ── */
+.bauty-editorial {
+  font-family: var(--font-playfair), 'Playfair Display', serif;
+}
+
+/* ── Botón vanguardista ── */
+.bauty-btn {
+  display: inline-block;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-size: 0.75rem;
+  transition: background-color 0.4s ease, color 0.4s ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.bauty-btn:hover {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+/* ── Animaciones de entrada con IntersectionObserver ── */
+.bauty-reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.bauty-reveal.bauty-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.bauty-reveal-left {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.bauty-reveal-left.bauty-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.bauty-reveal-zoom {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.bauty-reveal-zoom.bauty-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ── Navbar ── */
+.bauty-nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 50;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+  mix-blend-mode: difference;
+}
+
+/* ── Hero ── */
+.bauty-hero {
+  height: 100svh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  padding-inline: 1rem;
+}
+
+.bauty-hero__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.bauty-hero__overlay img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.3;
+  filter: grayscale(1);
+}
+
+.bauty-hero__content {
+  z-index: 10;
+  text-align: center;
+}
+
+.bauty-hero__title {
+  font-size: clamp(3rem, 10vw, 9rem);
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+
+/* ── Servicios (Alternados / Intercalados) ── */
+.bauty-services {
+  background-color: #0d0d0d;
+  padding-block: 6rem;
+  padding-inline: 2rem;
+}
+
+@media (min-width: 992px) {
+  .bauty-services {
+    padding-inline: 5rem;
+  }
+}
+
+/* Tarjetas de Servicio */
+.bauty-service-card {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  padding-block: 4rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  align-items: center;
+}
+
+.bauty-service-card:last-child {
+  border-bottom: none;
+}
+
+/* Efecto Hover sobre la imagen */
+.bauty-service-img-wrapper {
+  filter: grayscale(0.5);
+  transition: filter 0.5s ease, transform 0.8s ease;
+  overflow: hidden;
+  border-radius: 4px;
+}
+
+.bauty-service-card:hover .bauty-service-img-wrapper {
+  filter: grayscale(0);
+}
+
+.bauty-service-card:hover .bauty-service-img-wrapper img {
+  transform: scale(1.05);
+  transition: transform 1s ease;
+}
+
+@media (min-width: 992px) {
+  .bauty-service-card {
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+  }
+  
+  /* Intercalar orden en elementos pares */
+  .bauty-service-card:nth-child(even) .bauty-service-card__content {
+    order: 2;
+  }
+  
+  .bauty-service-card:nth-child(even) .bauty-service-card__img {
+    order: 1;
+  }
+}
+
+/* ── Método ── */
+.bauty-method {
+  min-height: 100svh;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0;
+  align-items: center;
+  padding-block: 5rem;
+  padding-inline: 2rem;
+  background-color: #000000;
+}
+
+@media (min-width: 768px) {
+  .bauty-method {
+    grid-template-columns: 7fr 5fr;
+    padding-inline: 5rem;
+  }
+}
+
+.bauty-method__image-wrapper {
+  position: relative; /* requerido para Next.js Image fill */
+  width: 100%;
+  height: 80svh;
+  overflow: hidden;
+  filter: grayscale(1);
+  transition: filter 1s ease;
+  margin-bottom: 3rem;
+}
+
+.bauty-method__image-wrapper:hover {
+  filter: grayscale(0);
+}
+
+.bauty-method__image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 3s ease;
+}
+
+.bauty-method__image-wrapper:hover img {
+  transform: scale(1.1);
+}
+
+@media (min-width: 768px) {
+  .bauty-method__image-wrapper {
+    margin-bottom: 0;
+  }
+
+  .bauty-method__text {
+    padding-left: 4rem;
+  }
+}
+
+/* ── Testimonial ── */
+.bauty-testimonial {
+  min-height: 60svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  color: #000000;
+  text-align: center;
+  padding-inline: 1.5rem;
+}
+
+/* ── FAQ ── */
+.bauty-faq {
+  padding-block: 6rem;
+  background-color: #0d0d0d;
+}
+
+.bauty-faq__item {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 1.5rem;
+  cursor: pointer;
+}
+
+.bauty-faq__summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  list-style: none;
+  font-size: 1.125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding-block: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+details[open] .bauty-faq__summary {
+  color: var(--bauty-accent);
+}
+
+.bauty-faq__icon {
+  font-size: 1.25rem;
+  transition: transform 0.3s ease;
+  display: inline-block;
+}
+
+details[open] .bauty-faq__icon {
+  transform: rotate(45deg);
+}
+
+.bauty-faq__answer {
+  margin-top: 1.5rem;
+  color: #9ca3af;
+  font-weight: 300;
+  line-height: 1.75;
+  padding-left: 1rem;
+  border-left: 2px solid rgba(255, 0, 51, 0.3);
+}
+
+/* ── Footer ── */
+.bauty-footer {
+  padding-block: 5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-inline: 2rem;
+  background-color: #000000;
+}
+
+.bauty-footer__headline {
+  font-size: clamp(3rem, 10vw, 9rem);
+  line-height: 1;
+  margin-bottom: 3rem;
+  text-align: center;
+}
+
+.bauty-footer__link {
+  transition: color 0.3s ease;
+}
+
+.bauty-footer__link:hover {
+  color: var(--bauty-accent);
+}
+
+/* ── Community ── */
+.bauty-community {
+  padding-block: 6rem;
+  background-color: #000000;
+}
+
+.bauty-community__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  padding-inline: 1rem;
+}
+
+@media (min-width: 768px) {
+  .bauty-community__grid {
+    grid-template-columns: repeat(4, 1fr);
+    padding-inline: 2rem;
+  }
+}
+
+.bauty-community__item {
+  position: relative;
+  aspect-ratio: 4/5;
+  overflow: hidden;
+  filter: grayscale(1);
+  transition: filter 0.8s ease;
+}
+
+.bauty-community__item:hover {
+  filter: grayscale(0);
+}
+
+.bauty-community__item img {
+  transition: transform 1.5s ease;
+}
+
+.bauty-community__item:hover img {
+  transform: scale(1.05);
+}
+

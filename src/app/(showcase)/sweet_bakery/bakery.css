@@ -1,0 +1,169 @@
+/* Sweet Bakery Custom Styles */
+
+@import "tailwindcss";
+
+@theme {
+  /* Colores Sweet Bakery */
+  --color-rose: #F472A0;
+  --color-rose-light: #FDE8F1;
+  --color-rose-soft: #FCA5C3;
+  --color-mint: #7ECECA;
+  --color-mint-light: #A8DEDE;
+  --color-mint-dark: #5BB8B8;
+  --color-cream: #FFF8F5;
+}
+
+:root {
+  --color-mint: #7ECECA;
+  --color-mint-light: #A8DEDE;
+  --color-mint-dark: #5BB8B8;
+  --color-rose: #F472A0;
+  --color-rose-light: #FDE8F1;
+  --color-rose-soft: #FCA5C3;
+  --color-cream: #FFF8F5;
+}
+
+#bakery-wrapper {
+  font-family: var(--font-nunito), 'Nunito', sans-serif;
+  background: var(--color-cream);
+}
+
+/* Scallop border effects */
+.scallop-bottom {
+  position: relative;
+}
+
+.scallop-bottom::after {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: -18px;
+  left: 0;
+  width: 100%;
+  height: 20px;
+  background-image: radial-gradient(circle at 10px -2px, transparent 12px, #fff 13px);
+  background-size: 20px 20px;
+  background-position: 0 0;
+  z-index: 10;
+}
+
+.scallop-top {
+  position: relative;
+}
+
+.scallop-top::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: -18px;
+  left: 0;
+  width: 100%;
+  height: 20px;
+  background-image: radial-gradient(circle at 10px 22px, transparent 12px, #fff 13px);
+  background-size: 20px 20px;
+  background-position: 0 0;
+  z-index: 10;
+}
+
+.scallop-hero-bottom::after {
+  background-image: radial-gradient(circle at 10px -2px, transparent 12px, #FFF8F5 13px);
+  bottom: -18px;
+}
+
+/* Animations */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-10px); }
+}
+
+@keyframes pulse-ring {
+  0%   { box-shadow: 0 0 0 0 rgba(244,114,160,0.4); }
+  70%  { box-shadow: 0 0 0 20px rgba(244,114,160,0); }
+  100% { box-shadow: 0 0 0 0 rgba(244,114,160,0); }
+}
+
+.fade-up  { animation: fadeUp 0.7s ease both; }
+.delay-1  { animation-delay: 0.15s; }
+.delay-2  { animation-delay: 0.30s; }
+.delay-3  { animation-delay: 0.45s; }
+.delay-4  { animation-delay: 0.60s; }
+.float    { animation: float 3s ease-in-out infinite; }
+.pulse-btn:hover { animation: pulse-ring 1s ease; }
+
+/* Card hover */
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(126,206,202,0.3);
+}
+
+/* Product image zoom */
+.img-zoom {
+  overflow: hidden;
+}
+
+.img-zoom img {
+  transition: transform 0.4s ease;
+}
+
+.img-zoom:hover img {
+  transform: scale(1.08);
+}
+
+/* Nav link underline */
+.nav-link {
+  position: relative;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--color-rose);
+  transition: width 0.3s;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Font utilities */
+.font-display {
+  font-family: var(--font-pacifico), 'Pacifico', cursive;
+}
+
+.font-heading {
+  font-family: var(--font-playfair), 'Playfair Display', serif;
+}
+
+.font-body {
+  font-family: var(--font-nunito), 'Nunito', sans-serif;
+}
+
+/* Animation delay utilities */
+.animation-delay-500 { animation-delay: 0.5s; }
+.animation-delay-1000 { animation-delay: 1s; }
+.animation-delay-1500 { animation-delay: 1.5s; }
+
+/* Reset headings para evitar conflictos con globals.css */
+#bakery-wrapper h1,
+#bakery-wrapper h2,
+#bakery-wrapper h3,
+#bakery-wrapper h4,
+#bakery-wrapper h5,
+#bakery-wrapper h6 {
+  font-family: var(--font-playfair), 'Playfair Display', serif;
+  color: inherit;
+  font-weight: 700;
+}

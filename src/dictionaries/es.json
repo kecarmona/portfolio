@@ -1,0 +1,198 @@
+{
+  "navbar": {
+    "about": "Sobre mí",
+    "stack": "Stack",
+    "projects": "Proyectos",
+    "contact": "Contacto",
+    "hire": "Contratame"
+  },
+  "hero": {
+    "openToWork": "Open to work",
+    "availability": "Disponible para roles remotos · 2026",
+    "title1": "Ingeniero Fullstack",
+    "title2": "que entrega y diagnostica",
+    "description": "Más de 5 años construyendo sistemas enterprise en Angular + NestJS. No solo escribo features — busco la causa raíz, instrumento el fix y escribo el test que lo demuestra. Desde refactors del -82% del código hasta 42 bugs de producción resueltos en un ciclo de testing.",
+    "ctaWork": "Ver mi trabajo",
+    "ctaLinkedIn": "LinkedIn →",
+    "stats": {
+      "years": "Años de experiencia",
+      "tests": "Tests escritos en un sprint",
+      "reduction": "Reducción de código",
+      "bugs": "Bugs P0 resueltos en un ciclo"
+    }
+  },
+  "companies": {
+    "pill": "COMPAÑÍAS Y CLIENTES",
+    "subtitle": "Equipos y productos para los que he construido"
+  },
+  "about": {
+    "pill": "SOBRE MÍ",
+    "title1": "Yo diagnostico sistemas,",
+    "title2": "no solo features",
+    "description": "Ingeniero Fullstack radicado en Costa Rica con más de 5 años en software enterprise B2B/B2C. Me especializo en arquitecturas Angular + NestJS, sistemas en tiempo real y automatización con IA. Mi diferenciador: dejo cada base de código mejor de lo que la encontré.",
+    "cards": {
+      "interfaces": {
+        "title": "Interfaces de alto rendimiento",
+        "desc": "Experto en Angular 14→21 con Signals, OnPush, componentes standalone y RxJS. He migrado 'God Components' (4,175 líneas) a más de 35 unidades testeables, bajando latencia de búsqueda de 3–5s a menos de 1s con índices GIN y estrategias de caché LRU."
+      },
+      "backends": {
+        "title": "Backends duraderos",
+        "desc": "NestJS + PostgreSQL/Supabase con multi-tenant (RLS, enrutamiento por headers), auth endurecido (JWT/ES256), WebSocket gateways y CI/CD en Bitbucket Pipelines. También he creado agentes de automatización n8n + LLM en producción."
+      }
+    },
+    "process": {
+      "title": "Mi proceso de desarrollo",
+      "subtitle": "Spec-Driven Development (SDD): proponer → aplicar → verificar → archivar.",
+      "tabs": {
+        "discovery": {
+          "label": "Descubrimiento",
+          "title": "Descubrimiento y Arquitectura",
+          "desc": "No solo tomo tickets; entiendo el problema de negocio. Si un requerimiento genera deuda técnica, discrepo y propongo alternativas."
+        },
+        "spec": {
+          "label": "Spec",
+          "title": "Guiado por Specs",
+          "desc": "Cada feature inicia con un OpenSpec. Escribo el 'Qué' y el 'Por qué' antes del 'Cómo'. Sin suposiciones ni programación a ciegas."
+        },
+        "development": {
+          "label": "Desarrollo",
+          "title": "Cómo programo",
+          "desc": "Uso OpenSpec (mi propio framework SDD) + Claude Code para desarrollo centrado en especificaciones. Todo es documentado, validado por jueces duales ciegos (protocolo Judgment Day) y se cierra solo si pasan los tests."
+        },
+        "testing": {
+          "label": "Testing",
+          "title": "Cultura de Testing",
+          "desc": "Testeo lo que importa. Unitarios para lógica de dominio crítica y E2E (Playwright) para el flujo feliz. En mi último ciclo añadí 722 tests en un sprint."
+        },
+        "production": {
+          "label": "Producción",
+          "title": "Producción y Ops",
+          "desc": "Setup de CI/CD, Dockerización e instrumentación en Datadog/Sentry. Soy dueño del código desde localhost hasta producción."
+        }
+      }
+    }
+  },
+  "tech": {
+    "pill": "STACK",
+    "title": "Tecnologías con las que construyo",
+    "description": "Angular + NestJS + TypeScript como núcleo. Extendido con PostgreSQL/Supabase, sistemas en tiempo real (Socket.IO) y automatización IA (n8n + LLMs + MCP)."
+  },
+  "projects": {
+    "pill": "TRABAJOS DESTACADOS",
+    "title": "Lo que he construido y resuelto",
+    "subtitle": "Sistemas reales en producción. Cada métrica es verificable — sin lorem ipsum, sin números inventados.",
+    "items": {
+      "maximus": {
+        "category": "B2B ENTERPRISE",
+        "title": "Maximus CRM — Refactor Módulo WhatsApp",
+        "desc": "Lideré un refactor crítico de 22 días en un módulo WhatsApp de CRM en producción. Descompuse 3 God Components en 35+ unidades standalone, aseguré 0→100% de cobertura con auth JWT/ES256 y resolví 10+ bugs de producción incluyendo WebSocket roto y race conditions en Kanban. También mapeé integraciones SAP B1 (módulos Oportunidades + Cotizaciones).",
+        "metrics": [
+          { "icon": "📉", "text": "God Service: 1.621 → 297 líneas", "badge": "-82%" },
+          { "icon": "⚡", "text": "Latencia búsqueda: 3–5s → <1s", "badge": "pg_trgm GIN" },
+          { "icon": "🧪", "text": "0 → 722 tests", "badge": "481 FE + 241 BE" }
+        ]
+      },
+      "miniso": {
+        "category": "E-COMMERCE B2C",
+        "title": "MINISO Costa Rica — Agente de Ventas IA WhatsApp",
+        "desc": "Diseñé y puse en producción un agente de ventas conversacional para una cadena minorista oficial usando n8n + GPT-4o + memoria PostgreSQL (ventana de 15 turnos). Arquitecté un patrón orquestador-agente con 28 reglas anti-alucinación. Resolví 42 bugs de producción en un ciclo de testing — incluyendo P0s como swaps de ID entre workflows, fallos de aislamiento de tenant y pérdida de mensajes por burst-detection.",
+        "liveTag": "Agente IA de Ventas · MINISO CR",
+        "bullets": [
+          "8 estados de conversación · 15+ intents clasificados",
+          "Reglas R0–R28 anti-alucinación · 42 bugs resueltos"
+        ],
+        "pBadges": ["P0: IDs cross-workflow corregidos", "P0: tenant_id hardcodeado", "P0: duplicación de carrito"]
+      },
+      "mcp": {
+        "category": "INTEGRACIÓN IA",
+        "title": "Servidor MCP Custom — Dev Tooling del Equipo",
+        "desc": "Construí un servidor Model Context Protocol con 17 herramientas para estandarizar el flujo de desarrollo asistido por IA de internos. Provee estándares de código, specs QA, DoD y automatización OpenSpec directamente a Claude Code. Incluye herramienta de enriquecimiento Jira y un sistema de skills con 6 plantillas reutilizables.",
+        "bullets": [
+          "17 herramientas: estándares, DoD, automatización OpenSpec",
+          "Caché TTL 60s · adaptativo al stack · enriquecimiento Jira",
+          "Judgment Day: protocolo de revisión adversarial ciega dual"
+        ],
+        "status": "Activo en producción"
+      },
+      "tico": {
+        "category": "PRODUCTO SAAS",
+        "title": "Tico Kitchen — POS SaaS Multi-tenant",
+        "desc": "Arquitecté un sistema POS multi-tenant con roles JWT dinámicos, permisos granulares y Clean Architecture. Resolví un bug silencioso crítico donde el auto-casting de ObjectId de Mongoose hacía que los permisos siempre retornaran vacíos — cero errores, invisibilidad total. Migración completa UUID→ObjectId en entities, ports, repositorios y use-cases.",
+        "codeBadge": "JWT · Multi-tenant · RLS"
+      }
+    }
+  },
+  "landings": {
+    "pill": "LANDING PAGES",
+    "title1": "Sitios para",
+    "title2": "negocios reales",
+    "subtitle": "Una selección de landings construidas para clientes y negocios locales. Cada una con su propia identidad visual y arquitectura.",
+    "cta": "Visitar",
+    "items": {
+      "beaty_studio": {
+        "category": "BEAUTY · NAILS",
+        "title": "Bauty Studio",
+        "desc": "Estudio dark-elegance de uñas, cejas y pestañas. Branding boutique con reservas online."
+      },
+      "ev_cars": {
+        "category": "MOVILIDAD · EV",
+        "title": "Voltios",
+        "desc": "Comunidad y marketplace de vehículos eléctricos en LATAM."
+      },
+      "hair_cut": {
+        "category": "BARBERÍA",
+        "title": "El Corte Noble",
+        "desc": "Barbería premium con sistema de reservas y showcase del equipo."
+      },
+      "sweet_bakery": {
+        "category": "PASTELERÍA",
+        "title": "Sweet Bakery",
+        "desc": "Pastelería con catálogo de productos frescos: cakes, cupcakes y panes."
+      },
+      "tres_vias": {
+        "category": "PASTELERÍA ARTESANAL",
+        "title": "Pastelería Tres Vías",
+        "desc": "Cafetería y pastelería artesanal con experiencia premium inmersiva."
+      }
+    }
+  },
+  "diff": {
+    "pill": "DIFERENCIADORES",
+    "title1": "Lo que me",
+    "title2": "hace destacar",
+    "cards": {
+      "quality": {
+        "title": "Dejo el código mejorado",
+        "desc": "No solo entrego features — identifico deuda arquitectónica y la resuelvo con resultados medibles. -82% tamaño del código, 722 tests añadidos, búsqueda 5× más rápida. Cada engagement tiene su historia antes/después."
+      },
+      "ai": {
+        "title": "Desarrollador AI-Native",
+        "desc": "He enviado productos IA reales: un agente de ventas WhatsApp en producción, un servidor MCP personalizado de 17 herramientas para flujos del equipo, y 28 reglas de ingeniería de prompts para anti-alucinación en LLMs. La IA acelera mi output sin sacrificar calidad."
+      },
+      "rootCause": {
+        "title": "Pensamiento de causa raíz",
+        "desc": "Cada bug que resuelvo lleva una lección documentada: síntoma → causa raíz → fix → regla de detección. He redactado 40+ lecciones aprendidas de un solo proyecto. Los fallos silenciosos (nombre de columna incorrecto, auto-cast erróneo) son exactamente lo que busco."
+      }
+    }
+  },
+  "contact": {
+    "availability": "Disponible para remoto",
+    "title1": "Construyamos algo",
+    "title2": "que perdure.",
+    "desc": "Busco roles de Senior Fullstack, Tech Lead o AI Integration Engineer. Prioridad remoto. Radicado en Costa Rica, disponible globalmente.",
+    "ctaLinkedIn": "LinkedIn →"
+  },
+  "footer": {
+    "desc": "Ingeniero Fullstack de Software · Angular + NestJS + TypeScript · Automatización IA · Costa Rica / Remoto Global",
+    "connect": "Conectar",
+    "strengths": {
+      "title": "Fortalezas",
+      "items": ["Angular 14 → 21", "APIs NestJS / Node.js", "Automatización n8n + LLM", "MCP / Herramientas IA"]
+    },
+    "roles": {
+      "title": "Roles que busco",
+      "items": ["Senior Fullstack Engineer", "Tech Lead / Staff Engineer", "AI Integration Engineer", "Software Architect"]
+    },
+    "copyright": "©2026 Kendal Carmona Herrera · Costa Rica"
+  }
+}
