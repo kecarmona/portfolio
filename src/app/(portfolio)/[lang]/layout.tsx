@@ -1,7 +1,11 @@
-import { getDictionary, hasLocale, Locale } from "@/dictionaries";
+import { getDictionary, hasLocale, Locale, locales } from "@/dictionaries";
 import { notFound } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+
+export function generateStaticParams() {
+  return locales.map((lang) => ({ lang }));
+}
 
 export default async function LocaleLayout({
   children,

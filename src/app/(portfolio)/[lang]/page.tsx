@@ -7,8 +7,12 @@ import Projects from "@/components/sections/Projects";
 import LandingPages from "@/components/sections/LandingPages";
 import Differentiators from "@/components/sections/Differentiators";
 import Contact from "@/components/sections/Contact";
-import { getDictionary, Locale, hasLocale } from "@/dictionaries";
+import { getDictionary, Locale, locales, hasLocale } from "@/dictionaries";
 import { notFound } from "next/navigation";
+
+export function generateStaticParams() {
+  return locales.map((lang) => ({ lang }));
+}
 
 export default async function Home({
   params,
