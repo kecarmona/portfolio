@@ -4,9 +4,9 @@ import { useEffect } from "react";
 
 export default function RootRedirect() {
   useEffect(() => {
-    // Instant redirect to default language (es)
-    // User can manually switch to /en if preferred
-    window.location.replace("/en/");
+// Redirect with basePath for GitHub Pages subdirectory
+    const basePath = "/portfolio";
+    window.location.replace(basePath + "/en/");
   }, []);
 
   // This HTML shows briefly before redirect (should be nearly instant)
