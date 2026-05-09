@@ -1,22 +1,15 @@
-import Script from "next/script";
-
 /**
  * Crossing route groups (portfolio <-> showcase) is a hard navigation because each owns
  * its own <html>. On back-nav the browser may serve cached HTML without re-running JS, so
  * the hamburger menu (and any stateful component) appears dead — React never re-hydrates.
  *
- * The fix lives in `/public/bfcache-reload.js` (loaded via `beforeInteractive` so it runs
- * before hydration). Static-export builds inline only the file reference, not the script
- * source — keeping the logic in `/public/` is the only path that survives `output: "export"`.
+ * The fix lives in `/public/bfcache-reload.js`. We render a plain `<script src>` instead
+ * of `next/script` because the latter also injects a `<link rel="preload">` for a script
+ * whose only job is to register a listener — Chrome flags the preload as unused.
+ * `async={false}` keeps it order-preserving so it runs before the hydration bundle.
  */
 const BASE_PATH = process.env.NODE_ENV === "production" ? "/portfolio" : "";
 
 export default function BfCacheReload() {
-  return (
-    <Script
-      id="bfcache-reload"
-      src={`${BASE_PATH}/bfcache-reload.js`}
-      strategy="beforeInteractive"
-    />
-  );
+  return <script src={`${BASE_PATH}/bfcache-reload.js`} async={false} />;
 }
