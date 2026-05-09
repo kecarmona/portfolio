@@ -6,11 +6,11 @@ export default function Projects({ dict }: { dict: ProjectsDict }) {
     <section id="projects" className="relative py-32 z-10">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16 scroll-reveal">
-          <div className="pill mb-5">{dict.pill}</div>
+          <div className="pill mb-5 text-xs tracking-wider font-semibold text-white/90">{dict.pill}</div>
           <h2 className="font-serif text-5xl md:text-6xl gradient-text">
             {dict.title}
           </h2>
-          <p className="mt-5 text-white/60 max-w-2xl mx-auto">
+          <p className="mt-5 text-white/80 max-w-2xl mx-auto">
             {dict.subtitle}
           </p>
         </div>
@@ -28,16 +28,16 @@ export default function Projects({ dict }: { dict: ProjectsDict }) {
                   <span className="text-violet-300">{metric.icon}</span>
                   <span className="text-sm flex-1">
                     {metric.text}{" "}
-                    <span className="metric-badge">{metric.badge}</span>
+                    <span className="metric-badge !text-xs">{metric.badge}</span>
                   </span>
-                  <span className="text-xs text-white/40 font-mono">
+                  <span className="text-xs text-white/70 font-mono">
                     0{idx + 1}
                   </span>
                 </div>
               ))}
             </div>
             <h3 className="text-lg font-medium mb-2">{dict.items.maximus.title}</h3>
-            <p className="text-sm text-white/60">{dict.items.maximus.desc}</p>
+            <p className="text-sm text-white/80">{dict.items.maximus.desc}</p>
             <div className="flex gap-2 mt-4 flex-wrap">
               {PROJECT_TAGS.maximus.map((tag) => (
                 <span
@@ -57,21 +57,21 @@ export default function Projects({ dict }: { dict: ProjectsDict }) {
                 <div className="flex items-center gap-2 mb-2">
                   <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></span>
                   <span className="text-xs text-white/70">{dict.items.miniso.liveTag}</span>
-                  <span className="ml-auto text-white/40 text-xs">live</span>
+                  <span className="ml-auto text-white/70 text-xs">live</span>
                 </div>
                 {dict.items.miniso.bullets.map((bullet, idx) => (
-                  <p key={idx} className="text-xs text-white/50 mt-1">{bullet}</p>
+                  <p key={idx} className="text-xs text-white/75 mt-1">{bullet}</p>
                 ))}
               </div>
               <div className="flex gap-2 flex-wrap">
                 {dict.items.miniso.pBadges.map((badge) => (
-                  <span key={badge} className="metric-badge">{badge}</span>
+                  <span key={badge} className="metric-badge !text-xs">{badge}</span>
                 ))}
               </div>
               <div className="absolute bottom-4 right-4 text-violet-300 text-2xl">🤖</div>
             </div>
             <h3 className="text-lg font-medium mb-2">{dict.items.miniso.title}</h3>
-            <p className="text-sm text-white/60">{dict.items.miniso.desc}</p>
+            <p className="text-sm text-white/80">{dict.items.miniso.desc}</p>
             <div className="flex gap-2 mt-4 flex-wrap">
               {PROJECT_TAGS.miniso.map((tag) => (
                 <span
@@ -104,12 +104,12 @@ export default function Projects({ dict }: { dict: ProjectsDict }) {
                   <div className="flex-1 h-1 bg-white/10 rounded-full overflow-hidden">
                     <div className="w-full h-full bg-gradient-to-r from-violet-500 to-violet-300"></div>
                   </div>
-                  <span className="text-xs text-white/50">{dict.items.mcp.status}</span>
+                  <span className="text-xs text-white/75">{dict.items.mcp.status}</span>
                 </div>
               </div>
             </div>
             <h3 className="text-lg font-medium mb-2">{dict.items.mcp.title}</h3>
-            <p className="text-sm text-white/60">{dict.items.mcp.desc}</p>
+            <p className="text-sm text-white/80">{dict.items.mcp.desc}</p>
             <div className="flex gap-2 mt-4 flex-wrap">
               {PROJECT_TAGS.mcp.map((tag) => (
                 <span
@@ -135,7 +135,7 @@ export default function Projects({ dict }: { dict: ProjectsDict }) {
               </div>
             </div>
             <h3 className="text-lg font-medium mb-2">{dict.items.tico.title}</h3>
-            <p className="text-sm text-white/60">{dict.items.tico.desc}</p>
+            <p className="text-sm text-white/80">{dict.items.tico.desc}</p>
             <div className="flex gap-2 mt-4 flex-wrap">
               {PROJECT_TAGS.tico.map((tag) => (
                 <span

@@ -22,9 +22,12 @@ export default function Footer({ dict }: { dict: FooterDict }) {
                 href={BRAND.linkedin}
                 target="_blank"
                 rel="noreferrer"
-                className="w-9 h-9 rounded-full glass flex items-center justify-center text-white/60 hover:text-white hover:border-violet-400/40 transition"
+                aria-label="LinkedIn"
+                className="inline-flex items-center justify-center min-w-11 min-h-11 rounded-full glass text-white/60 hover:text-white hover:border-violet-400/40 transition"
               >
                 <svg
+                  aria-hidden="true"
+                  focusable="false"
                   width="14"
                   height="14"
                   viewBox="0 0 24 24"
@@ -35,9 +38,12 @@ export default function Footer({ dict }: { dict: FooterDict }) {
               </a>
               <a
                 href={`mailto:${BRAND.email}`}
-                className="w-9 h-9 rounded-full glass flex items-center justify-center text-white/60 hover:text-white hover:border-violet-400/40 transition"
+                aria-label="Email"
+                className="inline-flex items-center justify-center min-w-11 min-h-11 rounded-full glass text-white/60 hover:text-white hover:border-violet-400/40 transition"
               >
                 <svg
+                  aria-hidden="true"
+                  focusable="false"
                   width="14"
                   height="14"
                   viewBox="0 0 24 24"

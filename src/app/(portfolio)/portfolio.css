@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
+/* Global focus indicator — violet-400 reads against the dark glass UI */
+:where(a, button, [role="button"], input, select, textarea, [tabindex]):focus-visible {
+  outline: 2px solid #a78bfa;
+  outline-offset: 3px;
+  border-radius: inherit;
+}
+
 @theme {
   --color-bg-deep: #070417;
   --color-bg-mid: #0c0a24;
@@ -132,19 +139,21 @@ body {
   border-radius: 20px;
 }
 
-.pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 14px;
-  border-radius: 999px;
-  background: rgba(124, 92, 255, 0.12);
-  border: 1px solid rgba(124, 92, 255, 0.3);
-  color: var(--violet-soft);
-  font-size: 11px;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  font-weight: 500;
+@layer components {
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: rgba(124, 92, 255, 0.12);
+    border: 1px solid rgba(124, 92, 255, 0.3);
+    color: var(--violet-soft);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
 }
 
 .btn-primary {
@@ -371,15 +380,17 @@ html[data-reveal-armed] .scroll-reveal.visible {
   transform: translateY(0);
 }
 
-.metric-badge {
-  display: inline-block;
-  padding: 2px 8px;
-  border-radius: 6px;
-  background: rgba(124, 92, 255, 0.15);
-  border: 1px solid rgba(124, 92, 255, 0.25);
-  font-family: var(--font-mono);
-  font-size: 11px;
-  color: var(--violet-soft);
+@layer components {
+  .metric-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 6px;
+    background: rgba(124, 92, 255, 0.15);
+    border: 1px solid rgba(124, 92, 255, 0.25);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--violet-soft);
+  }
 }
 
 @media (max-width: 768px) {
@@ -516,5 +527,50 @@ html[data-reveal-armed] .scroll-reveal.visible {
   .shooting-star {
     animation: none;
     display: none;
+  }
+
+  /* Keep content visible — kill the entrance animation but force final state */
+  .reveal {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .scroll-reveal,
+  html[data-reveal-armed] .scroll-reveal,
+  html[data-reveal-armed] .scroll-reveal.visible {
+    opacity: 1;
+    transform: none;
+    transition-duration: 0.01ms;
+  }
+
+  /* Neutralize long-running compositor animations and transitions */
+  .stars::after,
+  .orbit-1,
+  .orbit-2,
+  .orbit-3,
+  .orbit-1 .tech-node,
+  .orbit-2 .tech-node,
+  .orbit-3 .tech-node,
+  .marquee {
+    animation: none;
+  }
+
+  .btn-primary,
+  .btn-ghost,
+  .tech-node,
+  .nav-link,
+  .nav-link::after,
+  .mobile-menu-btn svg {
+    transition-duration: 0.01ms;
+  }
+
+  .btn-primary:hover,
+  .tech-node:hover {
+    transform: none;
+  }
+
+  html {
+    scroll-behavior: auto;
   }
 }

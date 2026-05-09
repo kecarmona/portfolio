@@ -41,13 +41,13 @@ export default function LandingPages({ dict }: { dict: LandingsDict }) {
     <section id="landings" className="relative py-24 z-10">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16 scroll-reveal">
-          <div className="pill mb-5">{dict.pill}</div>
+          <div className="pill mb-5 text-xs tracking-wider font-semibold text-white/90">{dict.pill}</div>
           <h2 className="font-serif text-4xl md:text-5xl gradient-text">
-            {dict.title1}
+            {dict.title1}{" "}
             <br />
             <span className="italic">{dict.title2}</span>
           </h2>
-          <p className="mt-5 text-white/60 max-w-2xl mx-auto">{dict.subtitle}</p>
+          <p className="mt-5 text-white/80 max-w-2xl mx-auto">{dict.subtitle}</p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 scroll-reveal">
@@ -71,7 +71,7 @@ export default function LandingPages({ dict }: { dict: LandingsDict }) {
                 </div>
 
                 <h3 className="text-xl font-serif mb-2">{item.title}</h3>
-                <p className="text-sm text-white/60 mb-6">{item.desc}</p>
+                <p className="text-sm text-white/80 mb-6">{item.desc}</p>
 
                 <span className="inline-flex items-center gap-1.5 text-sm text-white/70 group-hover:text-white transition">
                   {dict.cta}

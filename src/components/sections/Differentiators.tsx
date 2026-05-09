@@ -5,7 +5,7 @@ export default function Differentiators({ dict }: { dict: DiffDict }) {
     <section className="relative py-32 z-10">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16 scroll-reveal">
-          <div className="pill mb-5">{dict.pill}</div>
+          <div className="pill mb-5 text-xs tracking-wider font-semibold text-white/90">{dict.pill}</div>
           <h2 className="font-serif text-5xl md:text-6xl gradient-text">
             {dict.title1} <span className="italic">{dict.title2}</span>
           </h2>
@@ -29,7 +29,7 @@ export default function Differentiators({ dict }: { dict: DiffDict }) {
               </svg>
             </div>
             <h3 className="font-medium text-lg mb-2">{dict.cards.quality.title}</h3>
-            <p className="text-sm text-white/60">
+            <p className="text-sm text-white/80">
               {dict.cards.quality.desc}
             </p>
           </div>
@@ -52,7 +52,7 @@ export default function Differentiators({ dict }: { dict: DiffDict }) {
               </svg>
             </div>
             <h3 className="font-medium text-lg mb-2">{dict.cards.ai.title}</h3>
-            <p className="text-sm text-white/60">
+            <p className="text-sm text-white/80">
               {dict.cards.ai.desc}
             </p>
           </div>
@@ -74,7 +74,7 @@ export default function Differentiators({ dict }: { dict: DiffDict }) {
               </svg>
             </div>
             <h3 className="font-medium text-lg mb-2">{dict.cards.rootCause.title}</h3>
-            <p className="text-sm text-white/60">
+            <p className="text-sm text-white/80">
               {dict.cards.rootCause.desc}
             </p>
           </div>

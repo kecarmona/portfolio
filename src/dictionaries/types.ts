@@ -12,6 +12,7 @@ export type CompaniesDict = Dictionary['companies'];
 export type AboutDict = Dictionary['about'];
 export type TechDict = Dictionary['tech'];
 export type ProjectsDict = Dictionary['projects'];
+export type LandingsDict = Dictionary['landings'];
 export type DiffDict = Dictionary['diff'];
 export type ContactDict = Dictionary['contact'];
 export type FooterDict = Dictionary['footer'];

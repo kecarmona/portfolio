@@ -32,7 +32,7 @@ export default function Contact({ dict }: { dict: ContactDict }) {
               </svg>
             </div>
 
-            <div className="pill mx-auto mb-6">
+            <div className="pill mx-auto mb-6 text-xs tracking-wider font-semibold text-white/90">
               <span className="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></span>
               {dict.availability}
             </div>
@@ -40,7 +40,7 @@ export default function Contact({ dict }: { dict: ContactDict }) {
             <h2 className="font-serif text-4xl md:text-5xl gradient-text mb-4">
               {dict.title1} <span className="italic">{dict.title2}</span>
             </h2>
-            <p className="text-white/60 text-base max-w-md mx-auto mb-8">
+            <p className="text-white/80 text-base max-w-md mx-auto mb-8">
               {dict.desc}
             </p>
 

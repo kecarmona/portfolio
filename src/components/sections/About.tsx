@@ -27,12 +27,12 @@ export default function About({ dict }: { dict: AboutDict }) {
     <section id="about" className="relative py-32 z-10">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-16 scroll-reveal">
-          <div className="pill mb-5">{dict.pill}</div>
+          <div className="pill mb-5 text-xs tracking-wider font-semibold text-white/90">{dict.pill}</div>
           <h2 className="font-serif text-5xl md:text-6xl gradient-text">
-            {dict.title1}<br />
+            {dict.title1}{" "}<br />
             <span className="italic">{dict.title2}</span>
           </h2>
-          <p className="mt-5 text-white/60 max-w-2xl mx-auto">
+          <p className="mt-5 text-white/80 max-w-2xl mx-auto">
             {dict.description}
           </p>
         </div>
@@ -41,14 +41,14 @@ export default function About({ dict }: { dict: AboutDict }) {
           <div className="glass p-6 relative">
             <div className="absolute left-0 top-6 w-1 h-12 bg-gradient-to-b from-[#a78bfa] to-transparent rounded-r"></div>
             <h3 className="text-lg font-medium mb-2 pl-3">{dict.cards.interfaces.title}</h3>
-            <p className="text-sm text-white/60 pl-3">
+            <p className="text-sm text-white/80 pl-3">
               {dict.cards.interfaces.desc}
             </p>
           </div>
           <div className="glass p-6 relative">
             <div className="absolute left-0 top-6 w-1 h-12 bg-gradient-to-b from-[#a78bfa] to-transparent rounded-r"></div>
             <h3 className="text-lg font-medium mb-2 pl-3">{dict.cards.backends.title}</h3>
-            <p className="text-sm text-white/60 pl-3">
+            <p className="text-sm text-white/80 pl-3">
               {dict.cards.backends.desc}
             </p>
           </div>
@@ -58,7 +58,7 @@ export default function About({ dict }: { dict: AboutDict }) {
           <div className="flex items-start justify-between mb-1">
             <div>
               <h3 className="text-xl font-medium">{dict.process.title}</h3>
-              <p className="text-sm text-white/50 mt-1">
+              <p className="text-sm text-white/75 mt-1">
                 {dict.process.subtitle}
               </p>
             </div>
@@ -90,7 +90,7 @@ export default function About({ dict }: { dict: AboutDict }) {
                 </div>
                 <h4 className="font-medium">{processData[activeTab].title}</h4>
               </div>
-              <p className="text-sm text-white/60 mb-4">
+              <p className="text-sm text-white/80 mb-4">
                 {processData[activeTab].desc}
               </p>
             </div>

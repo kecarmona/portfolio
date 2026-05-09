@@ -7,11 +7,11 @@ export default function TechOrbit({ dict }: { dict: TechDict }) {
     <section id="stack" className="relative py-24 z-10 overflow-hidden">
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-10 scroll-reveal">
-          <div className="pill mb-5">{dict.pill}</div>
+          <div className="pill mb-5 text-xs tracking-wider font-semibold text-white/90">{dict.pill}</div>
           <h2 className="font-serif text-4xl md:text-5xl gradient-text">
             {dict.title}
           </h2>
-          <p className="mt-5 text-white/60 max-w-2xl mx-auto">{dict.description}</p>
+          <p className="mt-5 text-white/80 max-w-2xl mx-auto">{dict.description}</p>
         </div>
 
         <div className="orbit-container scroll-reveal">

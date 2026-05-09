@@ -4,7 +4,8 @@
     "stack": "Stack",
     "projects": "Proyectos",
     "contact": "Contacto",
-    "hire": "Contratame"
+    "hire": "Contratame",
+    "menu": "Menú móvil"
   },
   "hero": {
     "greeting": "Hola, soy Kendal Carmona.",
@@ -15,6 +16,7 @@
     "description": "Más de 5 años construyendo sistemas enterprise en Angular + NestJS. No solo escribo features — busco la causa raíz, instrumento el fix y escribo el test que lo demuestra. Desde refactors del -82% del código hasta 42 bugs de producción resueltos en un ciclo de testing.",
     "ctaWork": "Ver mi trabajo",
     "ctaLinkedIn": "LinkedIn →",
+    "ctaCv": "Descargar CV",
     "stats": {
       "years": "Años de experiencia",
       "tests": "Tests escritos en un sprint",

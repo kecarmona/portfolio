@@ -5,7 +5,7 @@ export default function Companies({ dict }: { dict: CompaniesDict }) {
   return (
     <section className="relative py-16 z-10">
       <div className="max-w-5xl mx-auto px-6 text-center scroll-reveal">
-        <div className="pill mb-4">{dict.pill}</div>
+        <div className="pill mb-4 text-xs tracking-wider font-semibold text-white/90">{dict.pill}</div>
         <p className="text-white/70 text-base mb-10">
           {dict.subtitle}
         </p>
