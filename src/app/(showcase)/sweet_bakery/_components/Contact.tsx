@@ -13,8 +13,9 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log("Form submitted:", formData);
+    // Showcase only: form submission is intentionally a no-op.
+    // Wire to a real backend before using in production.
+    void formData;
   };
 
   return (

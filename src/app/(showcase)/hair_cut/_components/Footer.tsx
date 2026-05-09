@@ -6,7 +6,7 @@ export default function Footer() {
           <div>
             <div className="footer-logo">EL CORTE <span>NOBLE</span></div>
             <div className="footer-tagline">
-              "Cada hombre merece el corte perfecto."
+              &quot;Cada hombre merece el corte perfecto.&quot;
             </div>
           </div>
           <div className="footer-social">

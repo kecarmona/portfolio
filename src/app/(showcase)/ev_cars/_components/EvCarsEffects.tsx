@@ -17,10 +17,6 @@ export default function EvCarsEffects() {
     let cursorCleanup = () => {};
 
     if (!isTouchDevice) {
-      // Hide cursor elements on touch devices
-      const cursorBoltEl = document.getElementById("cursorBolt");
-      const cursorRingEl = document.getElementById("cursorRing");
-
       // Restore default cursor on wrapper for non-touch
       const wrapper = document.getElementById("ev-cars-wrapper");
       if (wrapper) wrapper.style.cursor = "none";
@@ -291,9 +287,6 @@ export default function EvCarsEffects() {
         frame++;
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        const w = canvas.width;
-        const h = canvas.height;
-
         // Draw traces
         for (const trace of traces) {
           const fade = getCenterFade(
@@ -401,7 +394,7 @@ export default function EvCarsEffects() {
     }
 
     // 4. GSAP Scroll Reveal Animations
-    gsap.utils.toArray(".reveal").forEach((el: any) => {
+    gsap.utils.toArray<Element>(".reveal").forEach((el) => {
       gsap.fromTo(
         el,
         { opacity: 0, y: 40 },
@@ -420,7 +413,7 @@ export default function EvCarsEffects() {
       );
     });
 
-    gsap.utils.toArray(".reveal-left").forEach((el: any) => {
+    gsap.utils.toArray<Element>(".reveal-left").forEach((el) => {
       gsap.fromTo(
         el,
         { opacity: 0, x: -50 },
@@ -439,7 +432,7 @@ export default function EvCarsEffects() {
       );
     });
 
-    gsap.utils.toArray(".reveal-right").forEach((el: any) => {
+    gsap.utils.toArray<Element>(".reveal-right").forEach((el) => {
       gsap.fromTo(
         el,
         { opacity: 0, x: 50 },
@@ -458,7 +451,7 @@ export default function EvCarsEffects() {
       );
     });
 
-    gsap.utils.toArray(".reveal-scale").forEach((el: any) => {
+    gsap.utils.toArray<Element>(".reveal-scale").forEach((el) => {
       gsap.fromTo(
         el,
         { opacity: 0, scale: 0.9 },
@@ -511,7 +504,7 @@ export default function EvCarsEffects() {
       );
 
     // 6. Progress Bar Animations
-    document.querySelectorAll(".prog-fill[data-width]").forEach((bar: any) => {
+    document.querySelectorAll<HTMLElement>(".prog-fill[data-width]").forEach((bar) => {
       ScrollTrigger.create({
         trigger: bar,
         start: "top 90%",
@@ -539,12 +532,13 @@ export default function EvCarsEffects() {
       requestAnimationFrame(step);
     }
 
-    document.querySelectorAll("[data-target]").forEach((el: any) => {
+    document.querySelectorAll<HTMLElement>("[data-target]").forEach((el) => {
+      const target = parseInt(el.dataset.target ?? "0", 10);
       ScrollTrigger.create({
         trigger: el,
         start: "top 85%",
         once: true,
-        onEnter: () => animateCounter(el, parseInt(el.dataset.target)),
+        onEnter: () => animateCounter(el, target),
       });
     });
 
@@ -558,7 +552,7 @@ export default function EvCarsEffects() {
       window.removeEventListener("resize", resizeCanvas);
 
       // Kill all ScrollTrigger instances
-      ScrollTrigger.getAll().forEach((trigger: any) => trigger.kill());
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
 
       // Kill all GSAP tweens and timelines
       gsap.killTweensOf("*");

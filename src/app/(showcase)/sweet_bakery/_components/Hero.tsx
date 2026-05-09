@@ -34,8 +34,8 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Image collage */}
-        <div className="flex-1 relative h-80 md:h-96 fade-up delay-3">
+        {/* Mobile: single hero image stacked below text. Desktop: absolute 3-image collage. */}
+        <div className="flex-1 w-full relative fade-up delay-3 hidden md:block md:h-96">
           <div className="absolute left-0 bottom-0 w-48 h-56 rounded-2xl overflow-hidden shadow-2xl rotate-[-4deg] img-zoom">
             <img
               src="https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?w=400&q=80"
@@ -57,8 +57,23 @@ export default function Hero() {
               className="w-full h-full object-cover"
             />
           </div>
-          {/* floating badge */}
+          {/* floating badge — desktop only (mobile collage doesn't render) */}
           <div className="absolute bottom-8 right-4 bg-white rounded-xl shadow-lg p-3 z-30 fade-up delay-4 float">
+            <p className="text-xs text-gray-500">Fresh baked today</p>
+            <p className="text-rose font-bold text-sm">🎂 12 new cakes!</p>
+          </div>
+        </div>
+
+        {/* Mobile-only single hero image */}
+        <div className="md:hidden w-full fade-up delay-3 relative">
+          <div className="rounded-2xl overflow-hidden shadow-2xl img-zoom aspect-[4/3]">
+            <img
+              src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=600&q=80"
+              alt="Chocolate cake"
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <div className="absolute -top-3 right-3 bg-white rounded-xl shadow-lg p-3 z-10 float">
             <p className="text-xs text-gray-500">Fresh baked today</p>
             <p className="text-rose font-bold text-sm">🎂 12 new cakes!</p>
           </div>

@@ -12,6 +12,9 @@ export default function RevealBlock({ children, delay, className = "" }: RevealB
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const node = ref.current;
+    if (!node) return;
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -26,13 +29,9 @@ export default function RevealBlock({ children, delay, className = "" }: RevealB
       }
     );
 
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
+    observer.observe(node);
 
-    return () => {
-      if (ref.current) observer.unobserve(ref.current);
-    };
+    return () => observer.unobserve(node);
   }, []);
 
   const delayClass = delay ? `tv-reveal-delay-${delay}` : "";

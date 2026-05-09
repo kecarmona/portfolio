@@ -29,7 +29,7 @@ export default function About() {
           <h2>Donde el Arte<br />Encuentra la <em>Tradición</em></h2>
           <p>
             Founded in the heart of the city, The Noble Cut was born from a desire to bring back the golden era of barbering. 
-            We believe that a haircut isn't a chore — it's a ritual.
+            We believe that a haircut isn&apos;t a chore — it&apos;s a ritual.
           </p>
           <p>
             Our barbers are meticulously trained in both vintage techniques and modern trends, ensuring every client leaves 

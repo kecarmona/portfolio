@@ -112,7 +112,6 @@ export default function HairCutEffects() {
     // 6. Particles
     const canvas = document.getElementById("particles") as HTMLCanvasElement;
     let ctx: CanvasRenderingContext2D | null = null;
-    let particles: any[] = [];
     let particleAnimationId: number;
 
     if (canvas) {
@@ -166,9 +165,10 @@ export default function HairCutEffects() {
         }
       }
 
+      const particles: Particle[] = [];
       for (let i = 0; i < 60; i++) {
         const p = new Particle();
-        p.y = Math.random() * canvas.height; 
+        p.y = Math.random() * canvas.height;
         particles.push(p);
       }
 

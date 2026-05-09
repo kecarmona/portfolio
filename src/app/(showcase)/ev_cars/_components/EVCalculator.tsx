@@ -41,7 +41,7 @@ export default function EVCalculator() {
       fuelCost: Math.round(fuelCostPerMonth),
       evCost: Math.round(evCostPerMonth),
     };
-  }, [country, kmPerMonth, fuelConsumption, electricityRate, evConsumption, data]);
+  }, [kmPerMonth, fuelConsumption, electricityRate, evConsumption, data]);
 
   return (
     <section id="calculator" className="ev-calculator">

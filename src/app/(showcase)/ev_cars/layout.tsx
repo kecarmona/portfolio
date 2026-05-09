@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Bebas_Neue, DM_Sans, Space_Mono } from "next/font/google";
 import "./ev_cars.css";
 
@@ -19,10 +20,16 @@ const spaceMono = Space_Mono({
   variable: "--space-mono",
 });
 
-export const metadata = {
-  title: "Voltios — El Futuro Eléctrico",
+export const metadata: Metadata = {
+  title: "Voltios — EV Marketplace LATAM",
   description:
-    "Guía, comunidad y marketplace para vehículos eléctricos en LATAM",
+    "Guía, comunidad y marketplace para vehículos eléctricos en LATAM. Reviews honestas, asesoría personalizada y la calculadora de ahorro más completa de la región.",
+  openGraph: {
+    title: "Voltios — EV Marketplace LATAM",
+    description:
+      "Guía, comunidad y marketplace para vehículos eléctricos en LATAM.",
+    type: "website",
+  },
 };
 
 export default function EvCarsLayout({

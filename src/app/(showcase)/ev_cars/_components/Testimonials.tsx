@@ -14,7 +14,7 @@ export default function Testimonials() {
         <div className="testimonials-grid">
           {/* Testimonial 1 */}
           <div className="testimonial-card glass feature-card reveal">
-            <div className="quote-mark">"</div>
+            <div className="quote-mark">&ldquo;</div>
             <p className="testimonial-text">
               Gracias a Voltios tomé la mejor decisión de mi vida al comprar mi
               primer EV. La review del BYD Seal fue exactamente lo que
@@ -34,7 +34,7 @@ export default function Testimonials() {
 
           {/* Testimonial 2 - Highlighted */}
           <div className="testimonial-card glass-neon feature-card reveal">
-            <div className="quote-mark quote-mark-neon">"</div>
+            <div className="quote-mark quote-mark-neon">&ldquo;</div>
             <p className="testimonial-text">
               La asesoría personalizada valió cada centavo. Me ahorró meses de
               investigación y miles de dólares en potenciales errores. ¡Ya
@@ -54,7 +54,7 @@ export default function Testimonials() {
 
           {/* Testimonial 3 */}
           <div className="testimonial-card glass feature-card reveal">
-            <div className="quote-mark">"</div>
+            <div className="quote-mark">&ldquo;</div>
             <p className="testimonial-text">
               Llevo siguiendo el canal desde hace 3 años. La calidad del
               contenido técnico es de otro nivel. No existe nada igual en

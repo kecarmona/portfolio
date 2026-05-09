@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Pacifico, Playfair_Display, Nunito } from "next/font/google";
 import "./bakery.css";
 
@@ -20,9 +21,32 @@ const nunito = Nunito({
   variable: "--font-nunito",
 });
 
-export const metadata = {
-  title: "Sweet Bakery – Quality Products",
-  description: "Quality products made with love. Fresh cakes, cupcakes, and breads.",
+const SEO_TITLE = "Sweet Bakery — Cakes, Cupcakes & Breads";
+const SEO_DESCRIPTION =
+  "Handmade cakes, cupcakes and freshly baked breads delivered daily. Explore our menu, signature products and order from a bakery built on quality ingredients and craft.";
+
+export const metadata: Metadata = {
+  title: SEO_TITLE,
+  description: SEO_DESCRIPTION,
+  keywords: [
+    "bakery",
+    "cakes",
+    "cupcakes",
+    "breads",
+    "handmade pastries",
+    "sweet bakery",
+  ],
+  openGraph: {
+    type: "website",
+    title: SEO_TITLE,
+    description: SEO_DESCRIPTION,
+    siteName: "Sweet Bakery",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: SEO_TITLE,
+    description: SEO_DESCRIPTION,
+  },
 };
 
 export default function BakeryLayout({
