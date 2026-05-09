@@ -14,7 +14,11 @@ export default function Hero({ dict }: { dict: HeroDict }) {
           <span className="text-sm text-white/60">{dict.availability}</span>
         </div>
 
-        <h1 className="hero-title font-serif text-7xl leading-[1.05] mt-8 reveal gradient-text" style={{ animationDelay: "0.3s" }}>
+        <p className="mt-8 text-sm md:text-base font-mono uppercase tracking-[0.2em] text-white/50 reveal" style={{ animationDelay: "0.25s" }}>
+          {dict.greeting}
+        </p>
+
+        <h1 className="hero-title font-serif text-7xl leading-[1.05] mt-4 reveal gradient-text" style={{ animationDelay: "0.3s" }}>
           {dict.title1}<br />
           <span className="italic">{dict.title2}</span>
         </h1>

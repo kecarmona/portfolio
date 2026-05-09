@@ -4,9 +4,7 @@ import { useEffect } from "react";
 
 export default function RootRedirect() {
   useEffect(() => {
-// Redirect with basePath for GitHub Pages subdirectory
-    const basePath = "/portfolio";
-    window.location.replace(basePath + "/en/");
+    window.location.replace(window.location.pathname + "en/");
   }, []);
 
   // This HTML shows briefly before redirect (should be nearly instant)

@@ -7,13 +7,23 @@ export default function ScrollRevealObserver() {
   const pathname = usePathname();
 
   useEffect(() => {
-    // Wait one frame so the DOM is fully settled after cross-layout navigations.
-    // Without this, elements may still carry stale layout state from the
-    // previous route group.
-    const raf = requestAnimationFrame(() => {
-      const elements = document.querySelectorAll(".scroll-reveal");
+    const html = document.documentElement;
+    html.setAttribute("data-reveal-armed", "");
 
-      const observer = new IntersectionObserver(
+    let observer: IntersectionObserver | null = null;
+
+    const sweep = () => {
+      document.querySelectorAll(".scroll-reveal").forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 80 && rect.bottom > 0) {
+          el.classList.add("visible");
+        }
+      });
+    };
+
+    const attach = () => {
+      observer?.disconnect();
+      observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
@@ -23,36 +33,47 @@ export default function ScrollRevealObserver() {
         },
         { threshold: 0.1, rootMargin: "0px 0px -80px 0px" }
       );
+      document
+        .querySelectorAll(".scroll-reveal")
+        .forEach((el) => observer!.observe(el));
+      sweep();
+    };
 
-      elements.forEach((el) => {
-        // Strip stale `.visible` class so re-entering elements can
-        // transition again instead of staying stuck at opacity:0 with
-        // a ghost `.visible` from a previous render.
-        el.classList.remove("visible");
+    const raf = requestAnimationFrame(attach);
 
-        // Immediately mark elements already in the viewport — the
-        // IntersectionObserver initial callback is NOT guaranteed to
-        // fire synchronously for elements that are already intersecting
-        // at the time they are observed.
-        const rect = el.getBoundingClientRect();
-        const inViewport =
-          rect.top < window.innerHeight - 80 && rect.bottom > 0;
-        if (inViewport) {
-          el.classList.add("visible");
+    // Re-sweep across the window where browser/Lenis may restore scroll
+    // after back-nav (/en/ -> /sweet_bakery/ -> back).
+    const timeouts = [100, 300, 700, 1200, 2000].map((ms) =>
+      window.setTimeout(sweep, ms)
+    );
+
+    // Failsafe: if after 2.5s we still have hidden elements that should
+    // have been revealed (e.g. back-nav didn't trigger remount or scroll
+    // restore was silent), disarm so everything fades in.
+    const failsafe = window.setTimeout(() => {
+      const stuck = [...document.querySelectorAll(".scroll-reveal")].some(
+        (el) => {
+          const rect = el.getBoundingClientRect();
+          const inViewport =
+            rect.top < window.innerHeight - 80 && rect.bottom > 0;
+          return inViewport && !el.classList.contains("visible");
         }
+      );
+      if (stuck) html.removeAttribute("data-reveal-armed");
+    }, 2500);
 
-        observer.observe(el);
-      });
-
-      // Store ref for cleanup
-      (cleanup as { observer?: IntersectionObserver }).observer = observer;
-    });
-
-    const cleanup: { observer?: IntersectionObserver } = {};
+    const handlePageShow = (e: PageTransitionEvent) => {
+      if (e.persisted) attach();
+    };
+    window.addEventListener("pageshow", handlePageShow);
 
     return () => {
       cancelAnimationFrame(raf);
-      cleanup.observer?.disconnect();
+      timeouts.forEach((t) => window.clearTimeout(t));
+      window.clearTimeout(failsafe);
+      window.removeEventListener("pageshow", handlePageShow);
+      observer?.disconnect();
+      html.removeAttribute("data-reveal-armed");
     };
   }, [pathname]);
 

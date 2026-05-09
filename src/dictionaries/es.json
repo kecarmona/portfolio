@@ -7,6 +7,7 @@
     "hire": "Contratame"
   },
   "hero": {
+    "greeting": "Hola, soy Kendal Carmona.",
     "openToWork": "Open to work",
     "availability": "Disponible para roles remotos · 2026",
     "title1": "Ingeniero Fullstack",
@@ -29,7 +30,7 @@
     "pill": "SOBRE MÍ",
     "title1": "Yo diagnostico sistemas,",
     "title2": "no solo features",
-    "description": "Ingeniero Fullstack radicado en Costa Rica con más de 5 años en software enterprise B2B/B2C. Me especializo en arquitecturas Angular + NestJS, sistemas en tiempo real y automatización con IA. Mi diferenciador: dejo cada base de código mejor de lo que la encontré.",
+    "description": "Soy Kendal Carmona, ingeniero fullstack radicado en Costa Rica con más de 5 años en software enterprise B2B/B2C. Me especializo en arquitecturas Angular + NestJS, sistemas en tiempo real y automatización con IA. Mi diferenciador: dejo cada base de código mejor de lo que la encontré.",
     "cards": {
       "interfaces": {
         "title": "Interfaces de alto rendimiento",

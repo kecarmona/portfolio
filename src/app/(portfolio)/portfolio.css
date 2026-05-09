@@ -358,11 +358,15 @@ body {
 }
 
 .scroll-reveal {
-  opacity: 0;
-  transform: translateY(40px);
+  opacity: 1;
+  transform: none;
   transition: opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1), transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
 }
-.scroll-reveal.visible {
+html[data-reveal-armed] .scroll-reveal {
+  opacity: 0;
+  transform: translateY(40px);
+}
+html[data-reveal-armed] .scroll-reveal.visible {
   opacity: 1;
   transform: translateY(0);
 }
