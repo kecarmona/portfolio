@@ -54,8 +54,8 @@ export default function Navbar({ dict }: { dict: NavbarDict }) {
 
     const main = document.querySelector("main");
     const footer = document.querySelector("footer");
-    const siblings: Element[] = [main, footer].filter(
-      (el): el is Element => el !== null,
+    const siblings: HTMLElement[] = [main, footer].filter(
+      (el): el is HTMLElement => el !== null,
     );
 
     const supportsInert = "inert" in HTMLElement.prototype;
