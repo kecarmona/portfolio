@@ -1,4 +1,5 @@
 import "./showcase.css";
+import BfCacheReload from "@/components/BfCacheReload";
 
 /**
  * Showcase root layout — completely isolated from the portfolio runtime.
@@ -20,7 +21,10 @@ export default function ShowcaseRootLayout({
 }>) {
   return (
     <html lang="es" suppressHydrationWarning>
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        <BfCacheReload />
+        {children}
+      </body>
     </html>
   );
 }

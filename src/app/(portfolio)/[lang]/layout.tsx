@@ -3,6 +3,7 @@ import "../portfolio.css";
 import ScrollRevealObserver from "@/components/ui/ScrollRevealObserver";
 import SmoothScroll from "@/components/providers/SmoothScroll";
 import SkipLink from "@/components/SkipLink";
+import BfCacheReload from "@/components/BfCacheReload";
 import { getDictionary, hasLocale, Locale, locales } from "@/dictionaries";
 import { notFound } from "next/navigation";
 import Navbar from "@/components/Navbar";
@@ -46,6 +47,7 @@ export default async function LocaleLayout({
       <body
         className={`${geist.variable} ${instrumentSerif.variable} ${jetbrainsMono.variable} relative`}
       >
+        <BfCacheReload />
         {/* SkipLink must be the first focusable element in <body> for a11y. */}
         <SkipLink lang={lang as Locale} />
         <div className="stars"></div>
