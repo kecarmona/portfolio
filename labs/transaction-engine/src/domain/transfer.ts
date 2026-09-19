@@ -26,7 +26,7 @@ export interface Transfer {
   /** Timestamp of creation */
   createdAt: number;
   /** Rejection reason, if rejected */
-  rejectReason?: string;
+  rejectReason?: RejectReason;
 }
 
 export type RejectReason =
@@ -45,25 +45,32 @@ export function createTransfer(
   amount: number,
   idempotencyKey: string
 ): Transfer {
-  // TODO: implement
-  throw new Error("Not implemented");
+  return {
+    id,
+    sourceId,
+    destinationId,
+    amount,
+    idempotencyKey,
+    status: "pending",
+    createdAt: Date.now(),
+  };
 }
 
 /**
  * Marks a transfer as approved.
+ * Returns a new Transfer with status "approved".
  */
 export function approveTransfer(transfer: Transfer): Transfer {
-  // TODO: implement
-  throw new Error("Not implemented");
+  return { ...transfer, status: "approved" };
 }
 
 /**
  * Marks a transfer as rejected with a reason.
+ * Returns a new Transfer with status "rejected" and the given reason.
  */
 export function rejectTransfer(
   transfer: Transfer,
   reason: RejectReason
 ): Transfer {
-  // TODO: implement
-  throw new Error("Not implemented");
+  return { ...transfer, status: "rejected", rejectReason: reason };
 }

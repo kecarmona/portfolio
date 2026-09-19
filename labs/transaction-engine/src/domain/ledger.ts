@@ -22,7 +22,7 @@ export interface LedgerEntry {
 }
 
 /**
- * Creates a new LedgerEntry.
+ * Creates a new LedgerEntry for a balance change.
  */
 export function createLedgerEntry(
   id: string,
@@ -32,18 +32,49 @@ export function createLedgerEntry(
   amount: number,
   balanceAfter: number
 ): LedgerEntry {
-  // TODO: implement
-  throw new Error("Not implemented");
+  return {
+    id,
+    transferId,
+    accountId,
+    type,
+    amount,
+    balanceAfter,
+    timestamp: Date.now(),
+  };
 }
 
 /**
- * Verifies that the global balance is conserved.
- * Returns the total balance across all accounts.
+ * Verifies that the global balance is conserved across all ledger entries.
+ * Sums initial balances plus all credits minus all debits to compute final total.
  */
 export function verifyGlobalBalance(
   entries: LedgerEntry[],
   initialBalances: Map<string, number>
 ): { totalBefore: number; totalAfter: number; conserved: boolean } {
-  // TODO: implement
-  throw new Error("Not implemented");
+  let totalBefore = 0;
+  for (const balance of initialBalances.values()) {
+    totalBefore += balance;
+  }
+
+  // Clone initial balances and replay ledger
+  const balances = new Map(initialBalances);
+  for (const entry of entries) {
+    const current = balances.get(entry.accountId) ?? 0;
+    if (entry.type === "credit") {
+      balances.set(entry.accountId, current + entry.amount);
+    } else {
+      balances.set(entry.accountId, current - entry.amount);
+    }
+  }
+
+  let totalAfter = 0;
+  for (const balance of balances.values()) {
+    totalAfter += balance;
+  }
+
+  return {
+    totalBefore,
+    totalAfter,
+    conserved: Math.abs(totalBefore - totalAfter) < 1e-10,
+  };
 }
