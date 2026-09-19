@@ -1,0 +1,20 @@
+# dependencies
+node_modules/
+
+# build output
+dist/
+*.tsbuildinfo
+
+# test/coverage
+coverage/
+
+# benchmark reports (generated)
+reports/*.json
+reports/*.md
+!reports/.gitkeep
+
+# env
+.env*
+
+# debug
+*.log
