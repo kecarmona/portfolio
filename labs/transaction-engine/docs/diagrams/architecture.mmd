@@ -1,0 +1,33 @@
+graph TB
+    subgraph "Transaction Engine"
+        CLI[CLI / API]
+        TS[TransferService]
+        Domain[Domain Layer]
+        Infra[Infrastructure Layer]
+    end
+
+    subgraph "Domain"
+        Account[Account]
+        Transfer[Transfer]
+        Ledger[Ledger]
+    end
+
+    subgraph "Infrastructure"
+        Repo[AccountRepository]
+        Store[InMemoryStore]
+        WAL[Write-Ahead Log]
+    end
+
+    CLI --> TS
+    TS --> Domain
+    Domain --> Infra
+    TS --> Account
+    TS --> Transfer
+    TS --> Ledger
+    Repo --> Store
+    Repo --> WAL
+
+    style CLI fill:#e1f5fe
+    style TS fill:#fff3e0
+    style Domain fill:#e8f5e9
+    style Infra fill:#fce4ec

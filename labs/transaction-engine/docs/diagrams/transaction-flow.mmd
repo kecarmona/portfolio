@@ -1,0 +1,29 @@
+sequenceDiagram
+    participant C as Client
+    participant TS as TransferService
+    participant A as AccountRepository
+    participant L as Ledger
+
+    C->>TS: transfer(source, dest, amount, idempotencyKey)
+
+    TS->>A: findById(source)
+    A-->>TS: sourceAccount (balance, version)
+
+    TS->>A: findById(dest)
+    A-->>TS: destAccount (balance, version)
+
+    alt Idempotency key exists
+        TS-->>C: return cached result
+    else Insufficient balance
+        TS-->>C: reject(REASON_INSUFFICIENT_BALANCE)
+    else Balance would go negative
+        TS-->>C: reject(REASON_WOULD_OVERDRAW)
+    else All checks pass
+        TS->>A: debit(source, amount, version)
+        alt Version conflict
+            TS->>A: retry with fresh version
+        end
+        TS->>A: credit(dest, amount, version)
+        TS->>L: record(transferId, source, dest, amount)
+        TS-->>C: accept(transferId, newBalances)
+    end

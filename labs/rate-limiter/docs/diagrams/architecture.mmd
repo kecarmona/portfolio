@@ -1,0 +1,37 @@
+graph TB
+    subgraph "Rate Limiter"
+        CLI[CLI / API]
+        RLS[RateLimiterService]
+        Domain[Domain Layer]
+        Infra[Infrastructure Layer]
+    end
+
+    subgraph "Domain"
+        Limiter[Limiter Interface]
+        FW[FixedWindow]
+        SW[SlidingWindow]
+        TB[TokenBucket]
+        LB[LeakyBucket]
+    end
+
+    subgraph "Infrastructure"
+        Storage[In-Memory Storage]
+    end
+
+    CLI --> RLS
+    RLS --> Domain
+    Domain --> Infra
+    RLS --> Limiter
+    Limiter --> FW
+    Limiter --> SW
+    Limiter --> TB
+    Limiter --> LB
+    FW --> Storage
+    SW --> Storage
+    TB --> Storage
+    LB --> Storage
+
+    style CLI fill:#e1f5fe
+    style RLS fill:#fff3e0
+    style Domain fill:#e8f5e9
+    style Infra fill:#fce4ec
